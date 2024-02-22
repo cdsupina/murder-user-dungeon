@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     height: 100%;
 }
 
@@ -8,6 +9,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .game-container {
@@ -43,6 +49,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
