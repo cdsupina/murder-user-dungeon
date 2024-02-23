@@ -1,12 +1,19 @@
 // disable console on windows for release builds
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use bevy::app::{App, PluginGroup, Startup};
 use bevy::asset::AssetMetaCheck;
-use bevy::prelude::*;
-use bevy::window::PrimaryWindow;
+use bevy::ecs::entity::Entity;
+use bevy::ecs::query::With;
+use bevy::ecs::system::{NonSend, Query};
+use bevy::render::camera::ClearColor;
+use bevy::render::color::Color;
+use bevy::render::view::Msaa;
+use bevy::utils::default;
+use bevy::window::{PrimaryWindow, Window, WindowPlugin};
 use bevy::winit::WinitWindows;
 use bevy::DefaultPlugins;
-use murder_user_dungeon::GamePlugin; // ToDo: Replace bevy_game with your new crate name.
+use murder_user_dungeon::GamePlugin;
 use std::io::Cursor;
 use winit::window::Icon;
 
@@ -17,7 +24,7 @@ fn main() {
         .insert_resource(ClearColor(Color::rgb(0.4, 0.4, 0.4)))
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
-                title: "Bevy game".to_string(), // ToDo
+                title: "Murder User Dungeon".to_string(), // ToDo
                 // Bind to canvas included in `index.html`
                 canvas: Some("#bevy".to_owned()),
                 // Tells wasm not to override default event handling, like F5 and Ctrl+R

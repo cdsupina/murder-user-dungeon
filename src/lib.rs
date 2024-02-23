@@ -49,5 +49,8 @@ impl Plugin for GamePlugin {
         {
             app.add_plugins((FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin::default()));
         }
+
+        #[cfg(target_arch = "wasm32")]
+        std::panic::set_hook(Box::new(console_error_panic_hook::hook));
     }
 }

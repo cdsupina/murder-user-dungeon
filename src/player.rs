@@ -1,7 +1,17 @@
+use bevy::app::{App, Plugin, Update};
+use bevy::ecs::component::Component;
+use bevy::ecs::query::With;
+use bevy::ecs::schedule::common_conditions::in_state;
+use bevy::ecs::schedule::{IntoSystemConfigs, OnEnter};
+use bevy::ecs::system::{Commands, Query, Res};
+use bevy::math::Vec3;
+use bevy::sprite::SpriteBundle;
+use bevy::time::Time;
+use bevy::transform::components::Transform;
+
 use crate::actions::Actions;
 use crate::loading::TextureAssets;
 use crate::GameState;
-use bevy::prelude::*;
 
 pub struct PlayerPlugin;
 

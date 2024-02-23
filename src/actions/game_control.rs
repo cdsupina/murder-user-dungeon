@@ -1,4 +1,7 @@
-use bevy::prelude::{ButtonInput, KeyCode, Res};
+use bevy::{
+    ecs::system::Res,
+    input::{keyboard::KeyCode, ButtonInput},
+};
 
 pub enum GameControl {
     Up,

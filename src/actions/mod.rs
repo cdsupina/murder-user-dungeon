@@ -1,5 +1,15 @@
-use bevy::math::Vec3Swizzles;
-use bevy::prelude::*;
+use bevy::app::{App, Plugin, Update};
+use bevy::core_pipeline::core_2d::Camera2d;
+use bevy::ecs::query::With;
+use bevy::ecs::schedule::common_conditions::in_state;
+use bevy::ecs::schedule::IntoSystemConfigs;
+use bevy::ecs::system::{Query, Res, ResMut, Resource};
+use bevy::input::keyboard::KeyCode;
+use bevy::input::touch::Touches;
+use bevy::input::ButtonInput;
+use bevy::math::{Vec2, Vec3Swizzles};
+use bevy::render::camera::Camera;
+use bevy::transform::components::{GlobalTransform, Transform};
 
 use crate::actions::game_control::{get_movement, GameControl};
 use crate::player::Player;
